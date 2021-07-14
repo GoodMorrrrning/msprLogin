@@ -13,20 +13,12 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-blue bg-dark" >
-    <div class="collapse navbar-collapse" id="navbarNav"  >
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?controller=product&action=all"> My  Products </span></a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
 
 <div class="container " >
     <div class="row">
         <div class="col">
-            <h1 style="text-align: center;">Assignment 2 - Web Programming</h1>
+            <h1 style="text-align: center;">coucou les nuls</h1>
         </div>
     </div>
 </div>

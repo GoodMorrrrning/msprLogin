@@ -16,8 +16,8 @@ $action=$_GET["action"];
 else
 {
 //in case the product doesnt give us this values, we set them to a default controller and action
-$controller="product";
-$action="all";
+$controller="AuthController";
+$action="index";
 }
 
 //we load up our routing code, that will execute the action on the controller

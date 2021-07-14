@@ -15,6 +15,7 @@ $controller->{$action}();
 
 //an array, for the allowed controllers and their respective actions
 $controllers = array('product' => ['all','showAll','add','delete'],
+                        'AuthController' => ['verify', 'index'],
                         'comment' => ['all','showAll','allFromUser','delete','add']);
 
 
