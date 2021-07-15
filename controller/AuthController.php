@@ -9,6 +9,7 @@ class AuthController{
 
 
     public function verify(){
+        $ismdpok = "";
         $iscursed = false;
         if(isset($_POST['email']) && isset($_POST['pass']))
         {
@@ -28,10 +29,10 @@ class AuthController{
 
         } 
         if(!$iscursed){
-            echo "mot de passe ok";
+            $ismdpok = "mot de passe ok";
         }
         else{
-            echo "mot de passe piratable :(";
+            $ismdpok = "mot de passe piratable :(";
         }
           
             
@@ -72,10 +73,7 @@ class AuthController{
                exit();
            } 
         }
-        $b = new Foo;
-        $b->NomNavigateur = $browser;
       
-        file_put_contents('brow.json', json_encode($b));  
 
 
 
@@ -91,9 +89,33 @@ class AuthController{
 
    
      public function bypass(){
-        
+
+        if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
+        $browser = "Internet explorer";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) //For Supporting IE 11
+        $browser = "Internet explorer";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== FALSE)
+        $browser = "Mozilla Firefox";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE)
+        $browser = "Google Chrome";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== FALSE)
+        $browser = "Opera Mini";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== FALSE)
+        $browser = "Opera";
+        elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== FALSE)
+        $browser = "Safari";
+        else
+        $browser = "Something else";
+
+
+        $b = new Foo;
+        $b->NomNavigateur = $browser;
+      
+        file_put_contents('brow.json', json_encode($b));  
+
+
          $jsp = "";
-         require_once("view/auth/verify.php");
+         require_once("view/auth/index.php");
      }
 
 }

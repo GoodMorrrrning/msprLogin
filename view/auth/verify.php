@@ -39,7 +39,7 @@
   </div>
 </nav>
 <h5>Vous etes connecter as <?php echo $jsp; ?><h5>
-
+<h5><?php echo $ismdpok; ?><h5>
 <br>
 <br>
 
