@@ -1,26 +1,26 @@
 <?php
 
-//the function for calling the actions on the controller
+//la function principale
 function call($controller,$action){
 
-  //first we load the php file, with the correct controller and model
+//Tout d'abord, nous chargeons le fichier php, avec le contrôleur et le modèle corrects.
 require_once("controller/$controller.php");
 require_once("model/$controller.php");
 
-//we call the action function on the controller
+//Nous appelons la fonction d'action sur le contrôleur
 $controller=new $controller;
 $controller->{$action}();
 }
 
 
-//an array, for the allowed controllers and their respective actions
+//Un tableau, pour les contrôleurs autorisés et leurs actions respectives
 $controllers = array('product' => ['all','showAll','add','delete'],
                         'AuthController' => ['verify', 'index', 'bypass'],
                         'comment' => ['all','showAll','allFromUser','delete','add']);
 
 
-  //we check, if the invoked action is part of our mvc code
-  //without this check, a malicous product, could execute arbitrary code
+  //Nous vérifions si l'action invoquée fait partie de notre code mvc.
+  //sans cette vérification, un produit malveillant, pourrait exécuter un code arbitraire
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
       call($controller, $action);
@@ -30,7 +30,5 @@ $controllers = array('product' => ['all','showAll','add','delete'],
   } else {
     call('errorController', 'error');
   }
-
-
 
 ?>

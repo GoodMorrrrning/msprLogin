@@ -1,26 +1,26 @@
 <?php
-//our entry into the web application
+//l'entrée de notre application
 
-//all the requests will pass through this file
+//toutes les requêtes passe par ici
 
-
-//we load the db connection config file
+//chargement de la bd
 require_once("db.php");
 
-//we read the product intent into two variables
-//$controller and $action passed over query string
+//on charge le produit dans ces 2 variables
+//on récup controller et action
 if(isset($_GET["controller"])&&isset($_GET["action"])){
-$controller=$_GET["controller"];
-$action=$_GET["action"];
-}
-else
-{
-//in case the product doesnt give us this values, we set them to a default controller and action
+
+    $controller=$_GET["controller"];
+    $action=$_GET["action"];
+
+//par défaut
+}else {
+    
 $controller="AuthController";
 $action="index";
+
 }
 
-//we load up our routing code, that will execute the action on the controller
+//on charge les routes
 require_once("routes.php");
-
 ?>
