@@ -15,7 +15,7 @@ $controller->{$action}();
 
 //Un tableau, pour les contrôleurs autorisés et leurs actions respectives
 $controllers = array('product' => ['all','showAll','add','delete'],
-                        'AuthController' => ['verify', 'index', 'bypass'],
+                        'AuthController' => ['verify', 'index', 'bypass', 'auth', 'checkOTP'],
                         'comment' => ['all','showAll','allFromUser','delete','add']);
 
 

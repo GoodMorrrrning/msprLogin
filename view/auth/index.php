@@ -8,7 +8,7 @@
 <br>
 
 
-<form id="ConnForm" action="index.php?controller=AuthController&action=verify" method="POST">
+<form id="ConnForm" action="index.php?controller=AuthController&action=auth" method="POST">
   <div class="form-group">
     <!-- mail -->
     <label for="exampleInputEmail1">Email address</label>
